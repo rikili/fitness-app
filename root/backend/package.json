@@ -1,0 +1,19 @@
+{
+  "name": "fitness-app-backend",
+  "version": "1.0.0",
+  "description": "Backend for fitness-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rikili/fitness-app.git"
+  },
+  "author": "R & V",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rikili/fitness-app/issues"
+  },
+  "homepage": "https://github.com/rikili/fitness-app#readme"
+}
