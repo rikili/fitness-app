@@ -13,7 +13,7 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "project": "./root/frontend/tsconfig.json",
+        "project": "./tsconfig.json",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
