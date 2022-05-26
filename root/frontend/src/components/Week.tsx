@@ -1,24 +1,23 @@
 import React from 'react';
+
 import useStyles from './Week.style';
 
-import Button from './Button';
+import Day from './Day';
 
 interface PropTypes {
-  weekIndex: number,
-  dateValues: number[],
+  selectedMonth: number,
+  dates: Date[],
 }
 
-function Week({ weekIndex, dateValues }: PropTypes) {
+function Week({ selectedMonth, dates }: PropTypes) {
   const styles = useStyles();
   return (
     <div className={styles.Week}>
-      {dateValues.map((date: number) => (
-        <Button
-          className={styles.Day}
-          key={`Day: ${date}/(${weekIndex})`}
-        >
-          {String(date)}
-        </Button>
+      {dates.map((date: Date) => (
+        <Day
+          isSelected={date.getMonth() === selectedMonth}
+          date={date}
+        />
       ))}
     </div>
   );

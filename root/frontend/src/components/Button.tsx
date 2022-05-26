@@ -3,7 +3,7 @@ import React from 'react';
 import useStyles from './Button.style';
 
 interface PropTypes {
-  children: string,
+  children: any,
   onClick?: any,
   className?: string,
 }
