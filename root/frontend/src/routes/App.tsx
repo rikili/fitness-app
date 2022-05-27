@@ -9,10 +9,12 @@ function App() {
   return (
     <BrowserRouter>
       <MinimalHeader />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/workouts" element={<Workouts />} />
-      </Routes>
+      <main className="pageBody" style={{ position: 'relative', top: '50px' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/workouts" element={<Workouts />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

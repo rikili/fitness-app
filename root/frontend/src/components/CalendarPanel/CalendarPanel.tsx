@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { addMonths } from 'date-fns';
 
+import useStyles from './CalendarPanel.style';
 import Calendar from '../Calendar/Calendar';
-import CalendarControl from '../CalendarControl/CalendarControl';
+import CalendarHeader from '../CalendarHeader/CalendarHeader';
 
 function CalendarPanel() {
-  const [today] = useState(new Date());
+  const styles = useStyles();
   const [firstOfSelectedMonth, setFirstOfSelectedMonth] = useState<Date>(
-    new Date(`${today.getUTCFullYear()}-${today.getUTCMonth()}-1`),
+    new Date(`${new Date().getUTCFullYear()}-${new Date().getMonth() + 1}`),
   );
 
   const incrementMonth = () => setFirstOfSelectedMonth(
@@ -19,13 +20,13 @@ function CalendarPanel() {
   );
 
   return (
-    <div>
-      <CalendarControl
-        incrementMonth={incrementMonth}
-        decrementMonth={decrementMonth}
+    <div className={styles.panel}>
+      <CalendarHeader
+        currentSelectedMonth={firstOfSelectedMonth}
+        nextMonthControl={incrementMonth}
+        prevMonthControl={decrementMonth}
       />
       <Calendar
-        today={today}
         firstOfSelected={firstOfSelectedMonth}
       />
     </div>
