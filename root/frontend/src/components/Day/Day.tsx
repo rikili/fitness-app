@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 
 import useStyles from './Day.style';
-import Button from './Button';
+import Button from '../Button/Button';
 
 interface PropTypes {
   isSelected: boolean,

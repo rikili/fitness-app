@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
     borderWidth: '0',
     minWidth: '30px',
     minHeight: '30px',
-    margin: '15%',
+    margin: '5px',
   },
   UnSelectedDay: {
     background: 'lightGrey',
@@ -15,7 +15,7 @@ const useStyles = createUseStyles({
     borderWidth: '0',
     minWidth: '30px',
     minHeight: '30px',
-    margin: '15%',
+    margin: '5px',
   },
 });
 
