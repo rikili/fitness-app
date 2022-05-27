@@ -14,13 +14,17 @@ const defaultProps = {
 };
 
 function Button(props: PropTypes) {
-  const { children, onClick } = props;
-  let { className } = props;
-  if (!className) className = useStyles().Button;
+  const { children, onClick, className } = props;
+  const styles = useStyles();
+
+  const buttonStyle: string = !className
+    ? styles.default
+    : `${styles.base} ${className}`;
+
   return (
     <button
       type="button"
-      className={className}
+      className={buttonStyle}
       onClick={onClick}
     >
       {children}
