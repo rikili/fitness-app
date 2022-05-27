@@ -4,13 +4,12 @@ import { getDay, addDays, format } from 'date-fns';
 import Week from '../Week/Week';
 
 interface PropTypes {
-  today: Date,
   firstOfSelected: Date,
 }
 
 const getSundayOfWeek = (date: Date): Date => {
   const dayOfWeekOfFirst: number = getDay(date);
-  return addDays(date, -(dayOfWeekOfFirst - 1));
+  return addDays(date, -(dayOfWeekOfFirst));
 };
 
 const generateMonthLayout = (firstOfMonth: Date): Date[][] => {
@@ -29,18 +28,14 @@ const generateMonthLayout = (firstOfMonth: Date): Date[][] => {
 };
 
 function Calendar(props: PropTypes) {
-  const { today, firstOfSelected } = props;
-
+  const { firstOfSelected } = props;
   const monthLayoutInWeeks: Date[][] = generateMonthLayout(firstOfSelected);
 
   return (
     <div>
-      <div>
-        {`Test Calendar, Today = ${today} || Month = ${firstOfSelected}`}
-      </div>
       {monthLayoutInWeeks.map((week: Date[]) => (
         <Week
-          key={`Week: (first: [${format(week[0], 'mm-dd')}])`}
+          key={`Week: (first: [${format(week[0], 'MM-dd')}])`}
           selectedMonth={firstOfSelected.getMonth()}
           dates={week}
         />
