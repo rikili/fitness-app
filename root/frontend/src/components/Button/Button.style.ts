@@ -1,8 +1,12 @@
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  Button: {
-    'border-style': 'none !important',
+  base: {
+    borderStyle: 'none !important',
+    cursor: 'pointer',
+  },
+  default: {
+    composes: '$base',
   },
 });
 
