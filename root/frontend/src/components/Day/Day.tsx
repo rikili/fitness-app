@@ -10,7 +10,8 @@ interface PropTypes {
   date: Date,
 }
 
-const isSameDate = (firstDate: Date, secondDate: Date) => format(firstDate, 'MM-dd-yyyy') === format(secondDate, 'MM-dd-yyyy');
+const isSameDate = (firstDate: Date, secondDate: Date): boolean => format(firstDate, 'MM-dd-yyyy') === format(secondDate, 'MM-dd-yyyy');
+const generateDateURL = (date: Date): string => `../Workouts/${format(date, 'MMddyyyy')}`;
 
 function Day({ isSelected, date }: PropTypes) {
   const styles = useStyles();
@@ -24,7 +25,7 @@ function Day({ isSelected, date }: PropTypes) {
   return (
     <Button
       className={dayStyle}
-      onClick={() => navigate(`../Workouts/${date}`)}
+      onClick={() => navigate(generateDateURL(date))}
     >
       {String(date.getDate())}
     </Button>
