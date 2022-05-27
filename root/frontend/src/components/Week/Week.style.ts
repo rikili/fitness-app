@@ -1,10 +1,10 @@
 import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
-  Week: {
+  week: {
     display: 'flex',
     flexDirection: 'row',
-    width: '20px',
+    justifyContent: 'space-between',
   },
 });
 
