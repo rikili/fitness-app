@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 
 import useStyles from './Day.style';
@@ -10,18 +10,24 @@ interface PropTypes {
   date: Date,
 }
 
+const isSameDate = (firstDate: Date, secondDate: Date) => format(firstDate, 'MM-dd-yyyy') === format(secondDate, 'MM-dd-yyyy');
+
 function Day({ isSelected, date }: PropTypes) {
   const styles = useStyles();
-  const style = isSelected ? styles.SelectedDay : styles.UnSelectedDay;
+  const navigate = useNavigate();
+
+  const isToday = isSameDate(date, new Date());
+  let dayStyle;
+
+  if (isToday) dayStyle = styles.today;
+  else dayStyle = isSelected ? styles.selectedDay : styles.unSelectedDay;
   return (
-    <Link
-      to={`/Workouts/${date}`}
-      key={`Day: ${format(date, 'mm-dd-yy')}`}
+    <Button
+      className={dayStyle}
+      onClick={() => navigate(`../Workouts/${date}`)}
     >
-      <Button className={style}>
-        {String(date.getDate())}
-      </Button>
-    </Link>
+      {String(date.getDate())}
+    </Button>
   );
 }
 
