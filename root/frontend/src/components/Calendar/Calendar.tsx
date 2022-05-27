@@ -1,7 +1,7 @@
 import React from 'react';
 import { getDay, addDays, format } from 'date-fns';
 
-import Week from './Week';
+import Week from '../Week/Week';
 
 interface PropTypes {
   today: Date,
@@ -34,7 +34,7 @@ function Calendar(props: PropTypes) {
   const monthLayoutInWeeks: Date[][] = generateMonthLayout(firstOfSelected);
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div>
       <div>
         {`Test Calendar, Today = ${today} || Month = ${firstOfSelected}`}
       </div>

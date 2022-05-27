@@ -2,7 +2,7 @@ import React from 'react';
 
 import useStyles from './Week.style';
 
-import Day from './Day';
+import Day from '../Day/Day';
 
 interface PropTypes {
   selectedMonth: number,

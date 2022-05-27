@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { addMonths } from 'date-fns';
 
-import Calendar from './Calendar';
-import CalendarControl from './CalendarControl';
+import Calendar from '../Calendar/Calendar';
+import CalendarControl from '../CalendarControl/CalendarControl';
 
 function CalendarPanel() {
   const [today] = useState(new Date());
