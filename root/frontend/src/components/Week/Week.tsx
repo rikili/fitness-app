@@ -11,6 +11,8 @@ interface PropTypes {
 
 function Week({ selectedMonth, dates }: PropTypes) {
   const styles = useStyles();
+  if (dates.length !== 7) return null;
+
   return (
     <div className={styles.week}>
       {dates.map((date: Date) => (

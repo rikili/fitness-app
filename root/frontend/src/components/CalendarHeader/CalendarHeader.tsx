@@ -19,7 +19,7 @@ interface LabelTypes {
 
 function CalendarLabel({ month, year }: LabelTypes) {
   return (
-    <span>
+    <span data-testid="calendar-label">
       <b>{month}</b>
       {` | ${year}`}
     </span>
@@ -37,10 +37,18 @@ function CalendarHeader({
         year={format(currentSelectedMonth, 'yyyy')}
       />
       <div className={styles.selector}>
-        <Button className={styles.selectorButton} onClick={prevMonthControl}>
+        <Button
+          className={styles.selectorButton}
+          onClick={prevMonthControl}
+          data-testid="decrement-calendar"
+        >
           <b>{LEFT_CONTROL_SYMBOL}</b>
         </Button>
-        <Button className={styles.selectorButton} onClick={nextMonthControl}>
+        <Button
+          className={styles.selectorButton}
+          onClick={nextMonthControl}
+          data-testid="increment-calendar"
+        >
           <b>{RIGHT_CONTROL_SYMBOL}</b>
         </Button>
       </div>
