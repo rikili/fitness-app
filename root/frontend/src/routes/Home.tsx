@@ -1,10 +1,10 @@
 import React from 'react';
 
-import CalendarPanel from '../components/CalendarPanel/CalendarPanel';
+import Calendar from '../components/Calendar/Calendar';
 
 function Home() {
   return (
-    <CalendarPanel />
+    <Calendar />
   );
 }
 

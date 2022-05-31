@@ -1,45 +1,34 @@
-import React from 'react';
-import { getDay, addDays, format } from 'date-fns';
+import React, { useState } from 'react';
+import { addMonths } from 'date-fns';
 
-import Week from '../Week/Week';
+import useStyles from './Calendar.style';
+import Month from '../Month/Month';
+import CalendarHeader from '../CalendarHeader/CalendarHeader';
 
-interface PropTypes {
-  firstOfSelected: Date,
-}
+function Calendar() {
+  const styles = useStyles();
+  const [firstOfSelectedMonth, setFirstOfSelectedMonth] = useState<Date>(
+    new Date(`${new Date().getUTCFullYear()}-${new Date().getMonth() + 1}`),
+  );
 
-const getSundayOfWeek = (date: Date): Date => {
-  const dayOfWeekOfFirst: number = getDay(date);
-  return addDays(date, -(dayOfWeekOfFirst));
-};
+  const incrementMonth = () => setFirstOfSelectedMonth(
+    addMonths(firstOfSelectedMonth, 1),
+  );
 
-const generateMonthLayout = (firstOfMonth: Date): Date[][] => {
-  const monthLayout: Date[][] = [[], [], [], [], [], []];
-
-  const firstOfVisibleCalendar = getSundayOfWeek(firstOfMonth);
-  let dateToAdd = firstOfVisibleCalendar;
-  monthLayout.forEach((weekArr: Date[]) => {
-    for (let dayInWeek = 0; dayInWeek < 7; dayInWeek += 1) {
-      weekArr.push(dateToAdd);
-      dateToAdd = addDays(dateToAdd, 1);
-    }
-  });
-
-  return monthLayout;
-};
-
-function Calendar(props: PropTypes) {
-  const { firstOfSelected } = props;
-  const monthLayoutInWeeks: Date[][] = generateMonthLayout(firstOfSelected);
+  const decrementMonth = () => setFirstOfSelectedMonth(
+    addMonths(firstOfSelectedMonth, -1),
+  );
 
   return (
-    <div>
-      {monthLayoutInWeeks.map((week: Date[]) => (
-        <Week
-          key={`Week: (first: [${format(week[0], 'MM-dd')}])`}
-          selectedMonth={firstOfSelected.getMonth()}
-          dates={week}
-        />
-      ))}
+    <div className={styles.panel}>
+      <CalendarHeader
+        currentSelectedMonth={firstOfSelectedMonth}
+        nextMonthControl={incrementMonth}
+        prevMonthControl={decrementMonth}
+      />
+      <Month
+        firstOfSelected={firstOfSelectedMonth}
+      />
     </div>
   );
 }
