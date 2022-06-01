@@ -3,9 +3,9 @@ import { getDay, addDays, format } from 'date-fns';
 
 import Week from '../Week/Week';
 
-interface PropTypes {
+type PropTypes = {
   firstOfSelected: Date,
-}
+};
 
 const getSundayOfWeek = (date: Date): Date => {
   const dayOfWeekOfFirst: number = getDay(date);

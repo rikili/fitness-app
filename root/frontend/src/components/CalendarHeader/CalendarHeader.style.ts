@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
     height: '4vh',
     borderBottom: '2px solid lightGrey',
   },
-  selector: {
+  selectorGrid: {
     display: 'flex',
     flexFlow: 'row no-wrap',
   },

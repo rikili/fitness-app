@@ -2,15 +2,10 @@ import React from 'react';
 
 import useStyles from './Button.style';
 
-interface PropTypes {
+type PropTypes = {
   children: any,
   onClick?: any,
   className?: string,
-}
-
-const defaultProps = {
-  className: null,
-  onClick: null,
 };
 
 function Button(props: PropTypes) {
@@ -32,6 +27,9 @@ function Button(props: PropTypes) {
   );
 }
 
-Button.defaultProps = defaultProps;
+Button.defaultProps = {
+  className: null,
+  onClick: null,
+};
 
 export default Button;
