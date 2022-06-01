@@ -7,18 +7,16 @@ import Button from '../Button/Button';
 
 type PropTypes = {
   isSelected: boolean,
+  isToday?: boolean,
   date: Date,
 };
 
-const isSameDate = (firstDate: Date, secondDate: Date): boolean => format(firstDate, 'MM-dd-yyyy') === format(secondDate, 'MM-dd-yyyy');
-
 const generateDateURL = (date: Date): string => `../Workouts?date=${format(date, 'MMddyyyy')}`;
 
-function Day({ isSelected, date }: PropTypes) {
+function Day({ isSelected, isToday, date }: PropTypes) {
   const styles = useStyles();
   const navigate = useNavigate();
 
-  const isToday = isSameDate(date, new Date());
   let dayStyle;
 
   if (isToday) dayStyle = styles.today;
@@ -32,5 +30,9 @@ function Day({ isSelected, date }: PropTypes) {
     </Button>
   );
 }
+
+Day.defaultProps = {
+  isToday: false,
+};
 
 export default Day;

@@ -6,6 +6,11 @@ const useStyles = createUseStyles({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  selectedWeek: {
+    composes: '$week',
+    background: '#ffe8a6',
+    borderRadius: '8px',
+  },
 });
 
 export default useStyles;
