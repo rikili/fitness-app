@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import { Router, BrowserRouter } from 'react-router-dom';
+
 import Day from './Day';
 
 test('Day displays date passed', () => {
@@ -41,7 +42,7 @@ test('Day on click navigates to Workouts for day', (done) => {
       expect(history.location.search).toBe('?date=06022022');
       done();
     })
-    .catch((err) => {
-      done(err);
+    .catch((error) => {
+      done(error);
     });
 });

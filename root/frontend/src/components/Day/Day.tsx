@@ -5,12 +5,13 @@ import { format } from 'date-fns';
 import useStyles from './Day.style';
 import Button from '../Button/Button';
 
-interface PropTypes {
+type PropTypes = {
   isSelected: boolean,
   date: Date,
-}
+};
 
 const isSameDate = (firstDate: Date, secondDate: Date): boolean => format(firstDate, 'MM-dd-yyyy') === format(secondDate, 'MM-dd-yyyy');
+
 const generateDateURL = (date: Date): string => `../Workouts?date=${format(date, 'MMddyyyy')}`;
 
 function Day({ isSelected, date }: PropTypes) {

@@ -1,13 +1,13 @@
 import React from 'react';
 import { format } from 'date-fns';
-import useStyles from './Week.style';
 
+import useStyles from './Week.style';
 import Day from '../Day/Day';
 
-interface PropTypes {
+type PropTypes = {
   selectedMonth: number,
   dates: Date[],
-}
+};
 
 function Week({ selectedMonth, dates }: PropTypes) {
   const styles = useStyles();

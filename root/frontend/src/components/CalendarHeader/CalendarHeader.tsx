@@ -6,16 +6,16 @@ import useStyles from './CalendarHeader.style';
 import Button from '../Button/Button';
 import { LEFT_CONTROL_SYMBOL, RIGHT_CONTROL_SYMBOL } from './constants';
 
-interface PropTypes {
+type PropTypes = {
   currentSelectedMonth: Date,
   prevMonthControl: () => void,
   nextMonthControl: () => void,
-}
+};
 
-interface LabelTypes {
+type LabelTypes = {
   month: string,
   year: string,
-}
+};
 
 function CalendarLabel({ month, year }: LabelTypes) {
   return (
@@ -36,7 +36,7 @@ function CalendarHeader({
         month={format(currentSelectedMonth, 'MMMM')}
         year={format(currentSelectedMonth, 'yyyy')}
       />
-      <div className={styles.selector}>
+      <div className={styles.selectorGrid}>
         <Button
           className={styles.selectorButton}
           onClick={prevMonthControl}
