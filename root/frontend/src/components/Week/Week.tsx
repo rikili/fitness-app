@@ -9,19 +9,34 @@ type PropTypes = {
   dates: Date[],
 };
 
+const isSameDate = (firstDate: Date, secondDate: Date): boolean => format(firstDate, 'MM-dd-yyyy') === format(secondDate, 'MM-dd-yyyy');
+
 function Week({ selectedMonth, dates }: PropTypes) {
   const styles = useStyles();
   if (dates.length !== 7) return null;
 
+  const today = new Date();
+  let isWeekSelected = false;
+
+  const renderedDays = dates.map((date: Date) => {
+    let isToday = false;
+    if (isSameDate(date, today)) {
+      isWeekSelected = true;
+      isToday = true;
+    }
+    return (
+      <Day
+        key={`Day: ${format(date, 'MM-dd-yy')}`}
+        isSelected={date.getMonth() === selectedMonth}
+        isToday={isToday}
+        date={date}
+      />
+    );
+  });
+
   return (
-    <div className={styles.week}>
-      {dates.map((date: Date) => (
-        <Day
-          key={`Day: ${format(date, 'MM-dd-yy')}`}
-          isSelected={date.getMonth() === selectedMonth}
-          date={date}
-        />
-      ))}
+    <div className={isWeekSelected ? styles.selectedWeek : styles.week}>
+      {renderedDays}
     </div>
   );
 }
