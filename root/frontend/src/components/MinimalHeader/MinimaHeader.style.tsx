@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     alignItems: 'center',
     justifyContent: 'space-between',
     position: 'fixed',
+    zIndex: '1',
   },
   logo: {
     background: '#FF9E9E',
