@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 
 import useStyles from './CalendarHeader.style';
 
+import CalendarLabel from '../CalendarLabel/CalendarLabel';
 import Button from '../Button/Button';
 import { LEFT_CONTROL_SYMBOL, RIGHT_CONTROL_SYMBOL } from './constants';
 
@@ -11,20 +12,6 @@ type PropTypes = {
   prevMonthControl: () => void,
   nextMonthControl: () => void,
 };
-
-type LabelTypes = {
-  month: string,
-  year: string,
-};
-
-function CalendarLabel({ month, year }: LabelTypes) {
-  return (
-    <span data-testid="calendar-label">
-      <b>{month}</b>
-      {` | ${year}`}
-    </span>
-  );
-}
 
 function CalendarHeader({
   currentSelectedMonth, prevMonthControl, nextMonthControl,
