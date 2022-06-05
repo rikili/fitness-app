@@ -21,7 +21,7 @@ const useStyles = createUseStyles({
   },
   nav: {
     color: 'white',
-    minWidth: '180px',
+    minWidth: '245px',
     height: '100%',
     display: 'flex',
     justifyContent: 'space-around',
@@ -38,12 +38,6 @@ const useStyles = createUseStyles({
     textDecoration: 'none',
     color: '#FFB43B',
     borderBottom: '2px solid #FFB43B',
-  },
-  tempWeather: {
-    background: '#FCDD8E',
-    width: '35px',
-    height: '35px',
-    borderRadius: '100%',
   },
 });
 
