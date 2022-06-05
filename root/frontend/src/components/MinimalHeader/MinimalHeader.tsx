@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import useStyles from './MinimaHeader.style';
+import Weather from '../Weather/Weather';
 
 function MinimalHeader() {
   const classes = useStyles();
@@ -15,7 +16,7 @@ function MinimalHeader() {
         <NavLink className={({ isActive }) => (isActive ? classes.activeLink : classes.links)} to="/workouts">
           Workouts
         </NavLink>
-        <div className={classes.tempWeather} />
+        <Weather />
       </nav>
     </header>
   );
