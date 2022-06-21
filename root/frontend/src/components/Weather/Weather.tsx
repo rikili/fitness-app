@@ -4,10 +4,6 @@ import useStyles from './Weather.style';
 
 function Weather() {
   const classes = useStyles();
-  const fetchWeatherData = async (): Promise<any> => {
-    const data = await axios('http://localhost:5005/weather/getWeatherInfo');
-    return data.data;
-  };
 
   type WeatherDataObj = {
     current: any;
@@ -17,12 +13,21 @@ function Weather() {
   const [weatherData, setWeatherData] = useState<WeatherDataObj>();
 
   useEffect(() => {
+    let controller: any = new AbortController();
     const getWeather = async () => {
-      const fetchedWeatherData = await fetchWeatherData();
-      setWeatherData(fetchedWeatherData);
+      try {
+        const fetchedWeatherData: any = await axios('http://localhost:5005/weather/getWeatherInfo', {
+          signal: controller.signal,
+        });
+        setWeatherData(fetchedWeatherData.data);
+        controller = null;
+      } catch (err) {
+        console.log(err);
+      }
     };
     getWeather();
-  }, []);
+    return () => controller?.abort();
+  }, [setWeatherData]);
 
   return (
     <div className={classes.weatherContainer}>
