@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import useStyles from './Weather.style';
+import host from '../../constant';
 
 function Weather() {
   const classes = useStyles();
@@ -16,7 +17,7 @@ function Weather() {
     let controller: any = new AbortController();
     const getWeather = async () => {
       try {
-        const fetchedWeatherData: any = await axios('http://localhost:5005/weather/getWeatherInfo', {
+        const fetchedWeatherData: any = await axios(`${host}/weather/getWeatherInfo`, {
           signal: controller.signal,
         });
         setWeatherData(fetchedWeatherData.data);

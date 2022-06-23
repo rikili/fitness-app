@@ -9,8 +9,8 @@ const useStyles = createUseStyles({
     justifyContent: 'space-around',
   },
   currWeather: {
-    width: '40px',
-    height: '40px',
+    width: '2.5em',
+    height: '2.5em',
   },
   currWeatherTemp: {
     display: 'flex',
