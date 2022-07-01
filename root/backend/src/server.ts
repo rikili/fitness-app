@@ -7,7 +7,7 @@ import weatherAPI from './routes/weatherAPI';
 require('dotenv/config');
 
 const app: express.Application = express();
-const key: string = process.env.WEATHER_API_KEY!;
+const key: string = process.env.DB_CONNECT!;
 
 //  middleware
 app.use(cors());
