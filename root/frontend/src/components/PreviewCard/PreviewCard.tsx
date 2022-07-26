@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsFillSuitDiamondFill } from 'react-icons/bs';
+import { BsDiamondFill } from 'react-icons/bs';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import '../../styles/PreviewCard.scss';
 
@@ -15,7 +15,7 @@ function PreviewCard({ title, exercises, theme }: PropTypes) {
   const listExercise = exercises.map((exercise) => (
     <li className="listExerciseItem">
       <div className="exerciseItem">
-        <BsFillSuitDiamondFill style={{ color: theme }} />
+        <BsDiamondFill className="diamond" style={{ color: theme }} />
         <p className="exercise">{exercise}</p>
       </div>
     </li>
