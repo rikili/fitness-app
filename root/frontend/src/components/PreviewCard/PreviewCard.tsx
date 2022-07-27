@@ -15,7 +15,7 @@ function PreviewCard({ title, exercises, theme }: PropTypes) {
   const listExercise = exercises.map((exercise) => (
     <li className="listExerciseItem">
       <div className="exerciseItem">
-        <BsDiamondFill className="diamond" style={{ color: theme }} />
+        <BsDiamondFill className="diamond" size={10} style={{ color: theme }} />
         <p className="exercise">{exercise}</p>
       </div>
     </li>
