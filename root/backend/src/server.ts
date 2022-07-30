@@ -1,10 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import { graphqlHTTP } from 'express-graphql';
 //  routes
 import weatherAPI from './routes/weatherAPI';
 
 require('dotenv/config');
+const schema = require('./schema/schema');
 
 const app: express.Application = express();
 const key: string = process.env.DB_CONNECT!;
@@ -20,6 +22,11 @@ mongoose.connect(key, () => {
   // eslint-disable-next-line no-console
   console.log('connect to db');
 });
+
+app.use('/graphql', graphqlHTTP({
+  schema,
+  graphiql: process.env.NODE_ENV === 'development',
+}));
 
 app.listen(5005, () => {
   // eslint-disable-next-line no-console
