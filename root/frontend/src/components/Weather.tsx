@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import useStyles from './Weather.style';
-import host from '../../constant';
+import host from '../constant';
+import '../styles/Weather.scss';
 
 function Weather() {
-  const classes = useStyles();
-
   type WeatherDataObj = {
     current: any;
     location: any;
@@ -23,6 +21,7 @@ function Weather() {
         setWeatherData(fetchedWeatherData.data);
         controller = null;
       } catch (err) {
+        // eslint-disable-next-line no-console
         console.log(err);
       }
     };
@@ -31,13 +30,15 @@ function Weather() {
   }, [setWeatherData]);
 
   return (
-    <div className={classes.weatherContainer}>
-      <div className={classes.leftBorder} />
-      <img src={weatherData?.current.condition.icon} alt="weather-icon" className={classes.currWeather} />
-      <div className={classes.currWeatherTemp}>
-        <p>{weatherData?.current.temp_c}</p>
-        <p>&deg;C</p>
+    <div className="weatherContainer">
+      <div className="currInfo">
+        <div className="currWeatherTemp">
+          <h5 className="temp">{weatherData?.current.temp_c}</h5>
+          <h5 className="temp">&deg;C</h5>
+        </div>
+        <p className="location">{weatherData?.location.name}</p>
       </div>
+      <img src={weatherData?.current.condition.icon} alt="weather-icon" className="currWeather" />
     </div>
   );
 }
