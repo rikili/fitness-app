@@ -19,7 +19,7 @@ type ExerciseType = {
 };
 /* eslint-disable-next-line object-curly-newline */
 function PreviewCard({ title, exercises, theme, style }: PropTypes) {
-  const listExercise = exercises.map((exercise) => (
+  const listExercise = exercises.map((exercise: any) => (
     <li className="listExerciseItem">
       <div className="exerciseItem">
         <BsDiamondFill className="diamond" size={10} style={{ color: theme }} />
@@ -29,13 +29,15 @@ function PreviewCard({ title, exercises, theme, style }: PropTypes) {
   ));
 
   return (
-    <div className="previewCard" style={style}>
-      <div className="previewCardHeader" style={{ color: theme }}>
-        <div className="profileImage" style={{ background: theme }} />
-        <h2 className="previewCardTitle">{title}</h2>
+    <div style={style}>
+      <div className="previewCard">
+        <div className="previewCardHeader" style={{ color: theme }}>
+          <div className="profileImage" style={{ background: theme }} />
+          <h2 className="previewCardTitle">{title}</h2>
+        </div>
+        <ul className="list">{listExercise}</ul>
+        {exercises.length > 6 && <HiDotsHorizontal size={20} className="ellipse" />}
       </div>
-      <ul className="list">{listExercise}</ul>
-      {exercises.length > 6 && <HiDotsHorizontal size={20} className="ellipse" />}
     </div>
   );
 }
