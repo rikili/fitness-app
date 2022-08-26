@@ -20,7 +20,7 @@ type ExerciseType = {
 /* eslint-disable-next-line object-curly-newline */
 function PreviewCard({ title, exercises, theme, style }: PropTypes) {
   const listExercise = exercises.map((exercise: any) => (
-    <li className="listExerciseItem">
+    <li className="listExerciseItem" key={exercise.name}>
       <div className="exerciseItem">
         <BsDiamondFill className="diamond" size={10} style={{ color: theme }} />
         <p className="exercise">{exercise.name}</p>

@@ -4,7 +4,7 @@ import { VariableSizeList as List } from 'react-window';
 import PreviewCard from './PreviewCard';
 import '../styles/CardColumn.scss';
 import DaySummary from './DaySummary';
-import sizeMap from '../constants/CardColumn';
+import { sizeMap, screenHeight } from '../constants/CardColumn';
 
 const GET_WORKOUTS = gql`
   query getWorkouts {
@@ -31,7 +31,6 @@ type ExerciseType = {
 };
 
 function CardColumn() {
-  const screenHeight: number = window.innerHeight - 130;
   const longerListSpacing: number = 265;
   const { loading, error, data } = useQuery(GET_WORKOUTS);
   if (loading) return <p>Loading...</p>;
@@ -67,7 +66,6 @@ function CardColumn() {
     <div>
       {!loading && !error && (
         <div className="columns">
-          {/* eslint-disable-next-line max-len */}
           <List height={screenHeight} itemCount={columnOne.length} itemSize={colOne} width={280} className="list">
             {({ index, style }) => (
               <PreviewCard
@@ -75,10 +73,10 @@ function CardColumn() {
                 title={columnOne[index].title}
                 exercises={columnOne[index].exercises}
                 theme={columnOne[index].theme}
+                key={index}
               />
             )}
           </List>
-          {/* eslint-disable-next-line max-len */}
           <List height={screenHeight} itemCount={columnTwo.length} itemSize={colTwo} width={280} className="list">
             {({ index, style }) => (
               <PreviewCard
@@ -86,12 +84,12 @@ function CardColumn() {
                 title={columnTwo[index].title}
                 exercises={columnTwo[index].exercises}
                 theme={columnTwo[index].theme}
+                key={index}
               />
             )}
           </List>
           <div>
             <DaySummary />
-            {/* eslint-disable-next-line max-len */}
             <List height={screenHeight} itemCount={columnThree.length} itemSize={colThree} width={280} className="list">
               {({ index, style }) => (
                 <PreviewCard
@@ -99,6 +97,7 @@ function CardColumn() {
                   title={columnThree[index].title}
                   exercises={columnThree[index].exercises}
                   theme={columnThree[index].theme}
+                  key={index}
                 />
               )}
             </List>
