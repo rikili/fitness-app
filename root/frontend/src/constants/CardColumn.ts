@@ -7,4 +7,6 @@ const sizeMap = new Map<number, number>([
   [6, 250],
 ]);
 
-export default sizeMap;
+const screenHeight: number = window.innerHeight - 130;
+
+export { sizeMap, screenHeight };
