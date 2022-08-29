@@ -35,8 +35,17 @@
   margin: 0;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 565px) {
   .summary-item-right {
     display: none;
+  }
+}
+
+@media (max-width: 300px) {
+  .summary-day {
+    display: none;
+  }
+  .summary-time {
+    font-size: 20px;
   }
 }
