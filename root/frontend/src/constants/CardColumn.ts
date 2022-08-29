@@ -1,8 +1,8 @@
 const vertGap = 10;
 
-function calc(sizeList: number) {
-  const listSpacing = (sizeList - 1) * 30;
-  const header = 50;
+function calc(sizeList: number): number {
+  const listSpacing: number = (sizeList - 1) * 30;
+  const header: number = 50;
   return listSpacing + header + vertGap + 40;
 }
 const sizeMap = new Map<number, number>([

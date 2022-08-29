@@ -9,3 +9,9 @@
   margin-top: 10px;
   margin-left: 10px;
 }
+
+.weatherList {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+}

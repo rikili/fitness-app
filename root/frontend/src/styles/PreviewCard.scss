@@ -3,9 +3,10 @@ $text-color: #b1b1b1;
 
 .previewCard {
 	background: $background-color;
-	max-height: 300px;
 	border-radius: 15px;
-  margin-bottom: 10px;
+  height: calc(100% - 10px);
+  display: flex;
+  flex-direction: column;
 }
 
 .previewCardHeader {
