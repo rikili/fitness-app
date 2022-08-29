@@ -87,7 +87,7 @@ function CardColumn() {
               />
             )}
           </List>
-          <div>
+          <div className="weatherList">
             <DaySummary />
             <List height={screenHeight} itemCount={columnThree.length} itemSize={colThree} width={280} className="list">
               {({ index, style }) => (

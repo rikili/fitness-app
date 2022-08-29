@@ -34,3 +34,9 @@
 .summary-day {
   margin: 0;
 }
+
+@media (max-width: 880px) {
+  .summary-item-right {
+    display: none;
+  }
+}
