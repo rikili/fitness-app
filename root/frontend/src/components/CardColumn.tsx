@@ -4,7 +4,7 @@ import { VariableSizeList as List } from 'react-window';
 import PreviewCard from './PreviewCard';
 import '../styles/CardColumn.scss';
 import DaySummary from './DaySummary';
-import { sizeMap, screenHeight } from '../constants/CardColumn';
+import { sizeMap, screenHeight, longerListSpacing } from '../constants/CardColumn';
 
 const GET_WORKOUTS = gql`
   query getWorkouts {
@@ -31,7 +31,6 @@ type ExerciseType = {
 };
 
 function CardColumn() {
-  const longerListSpacing: number = 265;
   const { loading, error, data } = useQuery(GET_WORKOUTS);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Query Error</p>;
