@@ -4,7 +4,7 @@ import { VariableSizeList as List } from 'react-window';
 import PreviewCard from './PreviewCard';
 import '../styles/CardColumn.scss';
 import DaySummary from './DaySummary';
-import { sizeMap, screenHeight, longerListSpacing } from '../constants/CardColumn';
+import { vertGap, screenHeight, longerListSpacing } from '../constants/CardColumn';
 
 const GET_WORKOUTS = gql`
   query getWorkouts {
@@ -40,23 +40,29 @@ function CardColumn() {
   const columnTwo: WorkoutInfoType[] = workoutData.splice(0, third);
   const columnThree: WorkoutInfoType[] = workoutData.splice(0);
 
+  function getHeight(sizeList: number): number {
+    const listSpacing: number = (sizeList - 1) * 30;
+    const header: number = 50;
+    return listSpacing + header + vertGap + 40;
+  }
+
   const colOne: any = (index: number) => {
     if (columnOne[index].exercises.length <= 6) {
-      return sizeMap.get(columnOne[index].exercises.length);
+      return getHeight(columnOne[index].exercises.length);
     }
     return longerListSpacing;
   };
 
   const colTwo: any = (index: number) => {
     if (columnTwo[index].exercises.length <= 6) {
-      return sizeMap.get(columnTwo[index].exercises.length);
+      return getHeight(columnTwo[index].exercises.length);
     }
     return longerListSpacing;
   };
 
   const colThree: any = (index: number) => {
     if (columnThree[index].exercises.length <= 6) {
-      return sizeMap.get(columnThree[index].exercises.length);
+      return getHeight(columnThree[index].exercises.length);
     }
     return longerListSpacing;
   };
