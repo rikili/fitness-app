@@ -14,4 +14,9 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
+  width: 280px;
+}
+
+.columnThree {
+  width: auto !important;
 }

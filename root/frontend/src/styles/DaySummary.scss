@@ -1,5 +1,4 @@
 .background {
-  width: 280px;
   background-color: #6153c8;
   color: white;
   border-radius: 15px;
@@ -35,17 +34,23 @@
   margin: 0;
 }
 
-@media (max-width: 565px) {
+@media (max-width: 810px) {
   .summary-item-right {
     display: none;
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 450px) {
   .summary-day {
     display: none;
   }
   .summary-time {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 330px) {
+  .summary-time {
+    font-size: 13px;
   }
 }

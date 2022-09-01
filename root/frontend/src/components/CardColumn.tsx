@@ -95,7 +95,7 @@ function CardColumn() {
           </List>
           <div className="weatherList">
             <DaySummary />
-            <List height={screenHeight} itemCount={columnThree.length} itemSize={colThree} width={280} className="list">
+            <List height={screenHeight} itemCount={columnThree.length} itemSize={colThree} width={280} className="list columnThree">
               {({ index, style }) => (
                 <PreviewCard
                   style={style}
