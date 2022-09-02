@@ -4,13 +4,13 @@ import Weather from './Weather';
 
 function DaySummary() {
   const [time, setTime] = useState<string>(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }));
-  const [day, setDay] = useState<string>(new Date().toLocaleString('default', { year: 'numeric', month: 'long', day: 'numeric' }));
+  const [day, setDay] = useState<string>(new Date().toLocaleString('default', { year: 'numeric', month: 'short', day: 'numeric' }));
   useEffect(() => {
     const timer = setInterval(() => {
       setTime(new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }));
     }, 60000);
     const getDay = () => {
-      setDay(new Date().toLocaleString('default', { year: 'numeric', month: 'long', day: 'numeric' }));
+      setDay(new Date().toLocaleString('default', { year: 'numeric', month: 'short', day: 'numeric' }));
     };
     getDay();
     return () => {
