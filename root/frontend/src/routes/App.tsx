@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import MinimalHeader from '../components/MinimalHeader/MinimalHeader';
+import Header from '../components/Header';
 
 import Home from './Home';
 import Workouts from './Workouts';
@@ -13,9 +13,9 @@ function App() {
   });
   return (
     <BrowserRouter>
-      <MinimalHeader />
+      <Header />
       <ApolloProvider client={client}>
-        <main className="pageBody" style={{ position: 'relative', top: '50px' }}>
+        <main className="pageBody" style={{ position: 'relative', top: '50px', zIndex: '1' }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/workouts" element={<Workouts />} />

@@ -1,0 +1,90 @@
+$primary-color: #6153c8;
+$main-background: #1d1e24;
+$header-background: #3a3d4d;
+$header-select-background: #242631;
+
+.header {
+  background: $header-background;
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.nav {
+  color: white;
+  height: 100%;
+  width: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+
+  li {
+    list-style: none;
+    width: 50px;
+    height: 50px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 200px;
+  }
+}
+
+@mixin links {
+  position: relative;
+  top: 3px;
+  width: 40px;
+  height: 40px;
+}
+
+.link {
+  @include links;
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: $primary-color;
+    background: $header-select-background;
+    border-radius: 50%;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin curves {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 16px;
+  top: 21px;
+  background: transparent;
+  z-index: -1;
+}
+
+.activeLink {
+  @include links;
+  color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $header-select-background;
+  border-radius: 50%;
+  &:before {
+    @include curves;
+    left: -15px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 10px 10px 0px 10px $header-select-background;
+  }
+  &:after {
+    @include curves;
+    left: 40px;
+    border-bottom-left-radius: 20px;
+    box-shadow: -10px 10px 0px 10px $header-select-background;
+  }
+}
